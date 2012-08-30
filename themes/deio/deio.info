@@ -1,0 +1,12 @@
+name = lime
+description = de.indymedia.org lime style.
+package = Core
+version = VERSION
+core = 7.x
+stylesheets[all][] = layout.css
+
+; Information stage: 2012-07-14
+version = "1.0"
+project = "de.indymedia.org / lime"
+datestamp = "1335997555"
+

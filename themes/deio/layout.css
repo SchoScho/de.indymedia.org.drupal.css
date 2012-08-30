@@ -1,0 +1,1009 @@
+
+/**
+ * @file
+ * Stark layout method
+ *
+ * To avoid obscuring CSS added to the page by Drupal or a contrib module, the
+ * Stark theme itself has no styling, except just enough CSS to arrange the page
+ * in a traditional "Header, sidebars, content, and footer" layout.
+ *
+ * This layout method works reasonably well, but shouldn't be used on a
+ * production site because it can break. For example, if an over-large image
+ * (one that is wider than 20% of the viewport) is in the left sidebar, the
+ * image will overlap with the #content to the right. The exception to this
+ * is IE6 which will just hide the navigation block completely in these
+ * instances due to a positioning bug.
+ */
+
+#content,
+#sidebar-first,
+#sidebar-second {
+  float: left;
+  display: inline;
+  position: relative;
+}
+
+#content {
+  width: 100%;
+}
+body.sidebar-first #content {
+  width: 80%;
+  left: 20%; /* LTR */
+}
+body.sidebar-second #content {
+  width: 80%;
+}
+body.two-sidebars #content {
+  width: 60%;
+  left: 20%;
+}
+
+#sidebar-first {
+  width: 20%;
+  left: -80%; /* LTR */
+}
+
+body.two-sidebars #sidebar-first {
+  left: -60%; /* LTR */
+}
+
+#sidebar-second {
+  float: right; /* LTR */
+  width: 20%;
+}
+
+.section {
+  margin: 10px;
+}
+
+
+/* from de.indymedia.org mir layout */
+/*
+- site-wide styles
+- startpage
+- archivepage
+- articlepage
+*/
+
+/*************************************************************/
+/* General Body, Link and Font:                              */
+/*************************************************************/
+
+#ids {
+  color: red;
+}
+
+body {
+  font: 0.82em "Sans Serif", Arial, Helvetica, sans-serif;
+  background: #fff url("body_back.gif") repeat-x;
+  color: #000;
+}
+
+img {border: 0px;}
+
+a {text-decoration:none;}
+a:link {color:#50a000; background-color: inherit;}
+a:visited {color:#999; background-color: inherit;}
+a:hover {color:#709560; background-color: inherit;}
+a:active {color:red; background-color: inherit;}
+
+a.readmore {position:relative;float:right;}
+a.readmore:hover {border-bottom: dotted 1px #AAA;}
+
+.hidden {
+  visibility: hidden;
+}
+
+.clear {
+  clear: both;
+}
+
+.collapslink {
+  font-size: 1em;
+  font-weight: bold;
+  float: right;
+  padding: 4px 0px;
+}
+
+.xmlbutton {
+  border: 1px solid;
+  border-color: #FC9 #630 #330 #F96;
+  padding: 0 3px;
+  font: bold 10px verdana,sans-serif;
+  color: #fff;
+  background: #F60;
+  text-decoration: none;
+  margin: 0 0 0 5px;
+}
+
+.mediaicon {
+  margin: 5px 12px 4px 0;
+  float:left;
+}
+
+.imageicon {
+  margin: 5px 8px 1px 0;
+  border: 1px solid #666;
+  float: left;
+}
+
+/*************************************************************/
+/* General: Elements that appear on multiple pages           */
+/*************************************************************/
+
+/* #head for #startpage and #archivepage */
+#header {
+  position: absolute;
+  top: 0px;
+  left: 16px;
+  width: 97.5%;
+  border-bottom: 2px solid #666;
+  z-index: 4;
+  /* height: 104px; */
+  height: 9em;
+}
+
+#header #logo {
+  position: absolute;
+  background: url("logo.gif") no-repeat;
+  background-position: 30px 11px;
+  width: 180px;
+  height: 100px;
+}
+
+#header #name-and-slogan {
+  position: absolute;
+  left: 200px;
+  vertical-align:text-bottom;
+}
+
+#header #site-name  {
+  color:#666;
+  background-color: inherit;
+  font-family: "Trebuchet MS", sans-serif;
+  font-weight:bold;
+  font-size: 3em;
+  margin: 7px 0px;
+}
+
+#header #name-and-slogan #site-slogan {
+  color: #777;
+  background-color: inherit;
+  font-size: 0.8em;
+  width: 605px;
+}
+
+#page #navigation {
+  margin: 6px 0 4px 0;
+  padding: 10;
+  list-style: none;
+  position: absolute;
+  white-space: nowrap;
+  top: 25.5em;
+  left: 0.5em;
+  width: 100%;
+  display: inline;
+}
+.menu {
+  position: absolute;
+  top: 5.5em;
+  left: 15.5em;
+  width: 10%;
+  display: inline;
+
+}
+/*
+#page #navigation .section a {
+  display: inline;
+  padding: 0 8px 0 6px;
+  margin: 0;
+  border-left: 1px solid #000;
+  white-space: nowrap;
+}*/
+
+#header #titlebox ul {
+  margin: 6px 0 4px 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  white-space: nowrap;
+}
+
+#header #titlebox ul li {
+  display: inline;
+  padding: 0 8px 0 6px;
+  margin: 0;
+  border-left: 1px solid #000;
+  white-space: nowrap;
+}
+
+#header #titlebox ul li:first-child {
+  border-left: none;
+}
+
+
+#header #titlebox ul li a:hover {
+  border-width: 0 0 1px 0;
+  border-color: #666;
+  border-style:dotted;
+}
+
+/* navigation-elements for #startpage and #archivepage */
+.navbox {
+}
+
+.navbox h3 {
+  padding: 3px 6px;
+  color: #666;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 0px;
+}
+
+.navbox h4 {
+  font-size: 1em;
+  color: #666;
+  margin: 0;
+  padding: 6px;
+}
+
+.navlist {
+  border-top: 1px solid #ddd;
+  margin: 0 0 14px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navlist li {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: inherit;
+  border-bottom: 1px solid #ddd;
+}
+
+.navlist li a {
+  display: block;
+  padding: 3px 6px;
+}
+
+.navlist li a:hover {
+  background-color: #f7f7f7;
+  color: #709560;
+}
+
+.navbox .navboxcontent {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 6px;
+}
+
+/* search form */
+
+#searchbox form {
+  margin: 0;
+}
+
+#searchbox #searchtext {
+  color: #999;
+  font-size: 0.8em;
+  background-color: inherit;
+}
+
+#searchbox #searchfield {
+  width: 92%;
+  margin: 4px 0px 4px 0px;
+  border: 1px solid #ddd;
+}
+
+#searchbox #searchboolenan {
+  width: 92%;
+  border: 1px solid #ddd;
+}
+
+#searchbox #searchtopic {
+  width: 92%;
+  border: 1px solid #ddd;
+}
+
+#searchbox #searchbutton {
+  width: 92%;
+  border: 1px solid #ddd;
+  background: #eee;
+  color: #999;
+}
+
+
+/*************************************************************/
+/* Startpage:                                                */
+/*************************************************************/
+
+/* startpage: general page layout */
+
+#main-wrapper #main {
+  position: absolute;
+  top: 9.5em;
+  left: 0px;
+  width: 100%;
+}
+/*Hack for non-IE (real) Browsers*/
+#main-wrapper #main
+{ top/* */:/**/9.5em; top: 9.5em; }
+
+/*#startpage #left*/
+.region region-sidebar-first {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: 170px;
+  overflow: hidden;
+}
+
+#startpage #right {
+  position: absolute;
+  top: 0;
+  left: 76%;
+  right: 1%;
+}
+
+#startpage #right
+{ width: 34%; }
+
+#startpage #right
+{ width/* */:/**/23%; width: 23%; }
+
+#startpage #middle {
+  padding: 15px 15px 0 15px;
+  position: relative;
+  margin-left: 200px;
+  margin-right: 25%;
+}
+
+#startpage #mainfooter {
+  display: none;
+}
+
+/* startpage: elements */
+
+/* general elements within #left or #right */
+
+#startpage #left .navbox h3 {
+  border-left: 2px solid #ddd;
+}
+
+#startpage #right .navbox h3 {
+  border-right: 2px solid #ddd;
+}
+
+#startpage #right .navbox h4 {
+  border-right: 2px solid #ddd;
+}
+
+#startpage #left .navbox .navboxcontent {
+  border-right: 1px solid #ddd;
+}
+
+#startpage #right .navbox .navboxcontent {
+  border-left: 1px solid #ddd;
+}
+
+#startpage #left .navlist {
+  border-right: 1px solid #ddd;
+}
+
+#startpage #right .navlist {
+  border-left: 1px solid #ddd;
+}
+
+
+
+/* startpage: elements inside #left */
+
+#startpage #left #archivebox li {
+  padding-left: 18px;
+}
+
+#startpage #left #archivebox li.icontext {
+  background: url("text_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#startpage #left #archivebox li.iconaudio {
+  background: url("audio_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#startpage #left #archivebox li.iconfoto {
+  background: url("foto_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#startpage #left #archivebox li.iconvideo {
+  background: url("video_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#startpage #left #stylesheetbox .navboxcontent {
+  padding: 0;
+  font-size: 0.8em;
+}
+
+#startpage #left #stylesheetbox #styleswitcher form {
+  margin: 0;
+}
+
+#startpage #left #stylesheetbox #styleswitcher select {
+  margin-top: 6px;
+  /* background-color: #7bb608; */
+  background-color: #70b000;
+  border: 1px solid #ccc;
+  color: #fff;
+}
+
+#startpage #left #stylesheetbox #styleswitcher input {
+  /* background-color: #7bb608; */
+  background-color: #70b000;
+  color: #fff;
+}
+
+#startpage #left #upcomingbox .navlist li {
+  padding: 3px 6px;
+}
+
+#startpage #left #upcomingbox .navlist li a {
+ display: inline;
+ padding: 0px;
+}
+
+#startpage #left #imcbox .navboxcontent {
+  font-size: 0.8em;
+  color: #666;
+}
+
+#startpage #left #imcbox .navboxcontent a:hover {
+  border-bottom: 1px dotted #aaa;
+}
+
+/* startpage: elements inside #middle */
+
+#startpage #middle #startpagekasten {
+  padding: 10px;
+  margin: 0 0 15px 0;
+  background-color: #f7f7f7;
+  color: #000;
+  border: 2px solid #ee1111;
+}
+
+#startpage #middle #startpagekasten h1 {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #a00;
+  background-color: inherit;
+}
+
+#startpage #middle #breakingnews {
+  padding: 8px;
+  margin: 0 0 15px 0;
+  background-color: #f7f7f7;
+  color: #000;
+  border: 1px solid #ee1111;
+}
+
+#startpage #middle #breakingnews .date {
+  font-size: 0.9em;
+  color: #ee1111;
+  background-color: inherit;
+}
+
+#startpage #middle #breakingnews .text {
+  font-size: 0.9em;
+}
+
+#startpage #middle #breakingnews .text:after {
+  content:" +++ ";
+}
+
+#startpage #middle .article {
+  clear: both;
+  margin: 0 0 20px 0;
+}
+
+#startpage #middle .article h3 {
+  margin: 0 0 2px 0;
+  border-bottom: 1px solid #aaa;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+#startpage #middle .article .infoline {
+  font-size: 0.8em;
+}
+
+#startpage #middle .article .abstract {
+  margin-top: 4px;
+}
+
+#startpage #middle #special .article {
+  border: 1px solid #7bb608;
+  padding: 15px;
+  background-color:#f7f7f7;
+}
+
+#startpage #middle #features .article {
+  border: 1px solid #ddd;
+  padding: 15px;
+  /* background-color:#f7f7f7; */
+}
+
+#startpage #middle #middlefooter {
+  border-top: 1px solid #AAA;
+}
+
+/* startpage: elements inside #right */
+
+#startpage #right #publishbox .navboxcontent a {
+  font-size: 1.3em;
+  display: block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+#startpage #right #eventspecialbox {
+  margin-top: 15px;
+}
+
+#startpage #right #newswirebox .navlist {
+  margin: 0;
+}
+
+#startpage #right #newswirebox .navlist li {
+  display: block;
+  padding-left: 19px;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#startpage #right #newswirebox .navlist li:hover {
+  background-color: #f7f7f7;
+  color: inherit;
+}
+
+#startpage #right #newswirebox .navlist li.iconaudio {
+  background: url("audio_small.gif") no-repeat;
+  background-position: 2px 7px;
+}
+
+#startpage #right #newswirebox .navlist li.iconfoto {
+  background: url("foto_small.gif") no-repeat;
+  background-position: 2px 7px;
+}
+
+#startpage #right #newswirebox .navlist li.icontext {
+  background: url("text_small.gif") no-repeat;
+  background-position: 2px 7px;
+}
+
+#startpage #right #newswirebox .navlist li.iconvideo {
+  background: url("video_small.gif") no-repeat;
+  background-position: 2px 6px;
+}
+
+#startpage #right #newswirebox .navlist .language {
+  float: right;
+  color: #50a000;
+}
+/*************************************************************/
+/* Archivepages:                                             */
+/*************************************************************/
+
+/* archivepages: page layout */
+
+#archivepage #head #titlebox ul {
+  margin-top: 20px;
+}
+
+#archivepage #archivemain {
+  position: absolute;
+  top: 9.5em;
+  left: 0px;
+  width: 100%;
+}
+
+#archivepage  #archivemain #navigation {
+  position: absolute;
+  top: 0;
+  left: 16px;
+  width: 170px;
+  overflow: hidden;
+}
+
+#archivepage  #archivemain #navigation .navbox h3 {
+  border-left: 2px solid #ddd;
+}
+
+#archivepage  #archivemain #navigation .navbox .navboxcontent {
+  border-right: 1px solid #ddd;
+}
+
+#archivepage  #archivemain #navigation .navlist {
+  border-right: 1px solid #ddd;
+}
+
+#archivepage  #archivemain #articlelist {
+  position: static;
+  margin-left: 205px;
+  margin-right: 1%;
+}
+
+/* archivepages: elements */
+
+#archivepage  #archivemain #articlelist #archivename h2 {
+  color:#666;
+  font-size: 1.8em;
+  font-family: "Trebuchet MS", sans-serif;
+  display:inline;
+}
+
+#archivepage  #archivemain #articlelist #archivename {
+  width: 95%;
+  margin-top: 10px;
+  margin-left: 0px;
+  border-bottom: 2px solid #666;
+}
+
+#archivepage  #archivemain #articlelist .special .article {
+  border: 1px solid #ddd;
+  padding: 8px;
+  background-color:#F7F7F7;
+}
+
+#archivepage  #archivemain #articlelist .special h3 {
+  clear: both;
+  margin: 0 0 2px 0;
+  font-size: 1.6em;
+  font-weight: bold;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+#archivepage  #archivemain #articlelist .special .infoline {
+  font-size: 0.8em;
+}
+
+#archivepage  #archivemain #articlelist .special .abstract {
+  margin-top: 4px;
+}
+
+#archivepage  #archivemain #articlelist .article {
+  clear: both;
+  max-width: 600px;
+  margin: 0 5% 0 20px;
+  padding: 2px;
+}
+
+#archivepage  #archivemain #articlelist .article h3 {
+  margin-bottom: 2px;
+  border-bottom: 1px solid #AAA;
+  font-size: 1.4em;
+  font-weight: bold;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+#archivepage  #archivemain #articlelist .article .infoline {
+  font-size: 0.8em;
+}
+
+#archivepage  #archivemain #articlelist .article .abstract {
+  margin-top: 4px;
+}
+
+
+#footernav {
+  clear: both;
+  width: 95%;
+  margin-top: 24px;
+  border-top: 2px solid #666;
+  padding-top: 4px;
+}
+
+#footernav form {
+  margin: 0;
+}
+
+#footernavleft {
+  float: left;
+  width: 49%;
+}
+
+#footernavright {
+  float: right;
+  text-align: right;
+  width: 49%;
+}
+
+
+/*************************************************************/
+/* Articlepages:                                             */
+/*************************************************************/
+
+/* articlepages: page layout */
+
+#articlepage #articlemain {
+  width: 760px;
+  margin: 1px auto;
+  padding: 10px 0;
+  text-align:left;
+}
+
+#articlepage #articlemain #menu  {
+  width: 120px;
+  min-height: 200px;
+  float:left;
+  background-color:transparent;
+  text-align:right;
+}
+
+#articlepage #articlemain #article {
+  width: 600px;
+  float:right;
+  padding: 0 0 0 24px;
+  border-left: 2px solid #666;
+  min-height: 540px;
+}
+
+#articlepage #articlemain #comments {
+  width: 600px;
+  float:right;
+  padding: 32px 0 24px 24px;
+}
+
+/* articlepages: elements */
+
+#articlepage #articlemain #article .modbox {
+  border: 2px dashed #e40b00;
+  padding: 6px;
+  font-size: 0.9em;
+}
+
+#articlepage #articlemain #article h1 {
+  font-size: 1.8em;
+  margin: 24px 0 2px 0;
+  font-weight: bold;
+  font-family: "Trebuchet MS", sans-serif;
+  border-bottom: 2px solid #666;
+}
+
+#articlepage #articlemain #article .infoline{
+  display: inline;
+}
+
+#articlepage #articlemain #article .infoline .topics{
+  margin-left: 10px;
+}
+
+#articlepage #articlemain #article .infoline .topics a{
+  margin: 0 5px 0 5px;
+}
+
+#articlepage #articlemain #article .media .mediatype {
+  margin: 6px 16px 6px 0px;
+  float: left;
+}
+
+#articlepage #articlemain #article .abstract {
+  margin-top: 16px;
+  font-size: 1.1em;
+  clear: left;
+}
+
+#articlepage #articlemain #article .abstract .imageicon {
+  margin: 5px 9px 1px 0;
+  border: 0px;
+  padding: 0px;
+  float:left;
+}
+
+#articlepage #articlemain #article .content {
+  margin: 20px 0 10px 0;
+  clear:both;
+}
+
+#articlepage #articlemain #article .contact {
+  color: #777;
+  margin: 0 0 15px 0;
+  padding: 4px 7px;
+  border: 1px solid #eee;
+}
+
+#articlepage #articlemain #article .contact .email {
+  padding-right: 7px;
+  margin-right: 5px;
+}
+
+#articlepage #articlemain #article .contact .website {
+  padding-right: 7px;
+  margin-right: 5px;
+}
+
+#articlepage #articlemain #article .moreimages {
+  margin-top: 10px;
+}
+
+#articlepage #articlemain #article .moreimages .imageicon {
+  float: left;
+  width: 215px;
+  height: 260px;
+  padding: 6px 6px 6px 6px;
+  border: 0px;
+  text-align: center;
+}
+
+#articlepage #articlemain #article .moreimages .imageiconfirst {
+  display: none;
+}
+
+#articlepage #articlemain #article .moreimages .imageicon img {
+  border-right: solid 2px #666;
+  border-bottom: solid 2px #666;
+}
+
+#articlepage #articlemain #article .moreimages .imageicon img:hover {
+  border-right: solid 2px #fff;
+  border-bottom: solid 2px #fff;
+}
+
+#articlepage #articlemain #article .moreimages .imageicon .imagedescription a {
+  color: #666;
+  font-size: 0.9em;
+}
+
+#articlepage #articlemain #article .licencenote {
+  border: 1px solid #eee;
+  margin: 0 0 15px 0;
+  margin-right: 1px;
+  padding: 6px;
+  font-size: 0.8em;
+  float:right;
+  clear: both;
+}
+
+#articlepage #articlemain #article .licencenote img {
+  float: left;
+  margin: 0 8px 0 0;
+}
+
+#articlepage #articlemain #article .children {
+  border: 1px solid #eee;
+  clear: both;
+  padding: 6px 10px 6px 10px;
+  margin: 0 0 15px 0;
+}
+
+#articlepage #articlemain #article .children h2 {
+  margin: 4px 0 0 0;
+  font-size: 1em;
+}
+
+#articlepage #articlemain #article .disclaimer {
+  border: 1px solid #eee;
+  color: #aaa;
+  font-size: 0.8em;
+  clear: both;
+  padding: 4px 7px;
+}
+
+#articlepage #articlemain #menu #logo {
+  background: url("logo.gif") no-repeat;
+  background-position: 16px 0;
+  width: 120px;
+  height: 85px;
+  display:block;
+  margin-bottom: 20px;
+}
+
+#articlepage #articlemain #menu div {
+  margin: 10px 0 10px 0;
+}
+
+#articlepage #articlemain #menu div a {
+}
+
+#articlepage #articlemain #comments h2 {
+  clear: both;
+  border-bottom: 1px solid #666;
+  font-size: 1.4em;
+}
+
+#articlepage #articlemain #comments .badcomments h2 {
+  margin-top: 40px;
+  border-bottom: 1px solid #999;
+  clear: both;
+  color: #999;
+  padding-top: 4px;
+}
+
+#articlepage #articlemain #comments .comment {
+  clear: both;
+  margin-top: 12px;
+}
+
+#articlepage #articlemain #comments .comment .title {
+  font-family: "Trebuchet MS", sans-serif;
+  margin: 0 0 2px 0;
+  padding: 3px 0 0 0;
+}
+
+#articlepage #articlemain #comments .goodcomments .comment .title {
+  border-bottom: 1px solid #666;
+  font-size: 1.1em;
+}
+
+#articlepage #articlemain #comments .comment .infoline {
+  margin: 0 0 3px 0;
+}
+
+#articlepage #articlemain #comments .comment .content {
+  margin-top: 0;
+  margin-bottom: 6px;
+  clear: both;
+}
+
+#articlepage #articlemain #comments .comment .contact {
+  color: #777;
+  margin: 0 0 15px 0;
+  padding: 4px 7px;
+  border: 1px solid #eee;
+  clear: both;
+}
+
+#articlepage #articlemain #comments .comment .contact .email {
+  padding-right: 7px;
+  margin-right: 5px;
+}
+
+#articlepage #articlemain #comments .comment .contact .website {
+  padding-right: 7px;
+  margin-right: 5px;
+}
+
+
+
+#articlepage #articlemain #comments .badcomments .comment .title {
+  font-size: 1em;
+  color: #999;
+}
+
+#articlepage #articlemain #comments .badcomments .comment .infoline {
+  color: #999;
+}
+
+#articlepage #articlemain #comments .badcomments .comment .content {
+  color: #999;
+}
+
+#articlepage #articlemain #comments .comment .imageicon {
+  border: none;
+  float: left;
+  width: 200px;
+  padding: 6px 6px 6px 6px;
+  text-align: center;
+}
+
+#articlepage #articlemain #comments .comment .imageicon a {
+  color: #666;
+  font-size: 0.9em;
+}
+
+/* general stuff */
+
+.htmlformat {
+  padding: 8px;
+  background-color:#F7F7F7;
+  border: 1px solid #EE1111;
+}
+
+.htmlformat .text {
+  font-size: 0.9em;
+}
