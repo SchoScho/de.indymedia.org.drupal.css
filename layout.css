@@ -44,16 +44,31 @@ body.two-sidebars #content {
 }
 
 body.two-sidebars #sidebar-first {
-  left: -60%; /* LTR */
+  position: absolute;
+  Top: 0;
+  left: 16px;
+  width: 170px;
+  overflow: hidden;
 }
 
 #sidebar-second {
-  float: right; /* LTR */
-  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 76%;
+  right: 1%;
+  margin: 0;
 }
+
 
 .section {
   margin: 10px;
+}
+
+/* Meldung gespeichert etc. */
+div.messages {
+  width: 80%;
+  left: 15%;
+  position: relative; 
 }
 
 
@@ -173,43 +188,33 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   width: 605px;
 }
 
-#page #navigation {
-  margin: 6px 0 4px 0;
-  padding: 10;
-  list-style: none;
-  position: absolute;
-  white-space: nowrap;
-  top: 25.5em;
-  left: 0.5em;
-  width: 100%;
-  display: inline;
-}
-.menu {
-  position: absolute;
+/*.menu {
+  position: absolute; 
   top: 5.5em;
   left: 15.5em;
   width: 10%;
   display: inline;
 
-}
-/*
+}*/
+
 #page #navigation .section a {
   display: inline;
   padding: 0 8px 0 6px;
   margin: 0;
   border-left: 1px solid #000;
   white-space: nowrap;
-}*/
+}
 
-#header #titlebox ul {
-  margin: 6px 0 4px 0;
+#header #block-menu-menu-static-links ul {
+  margin: 75px 0 4px 0;
+  left: 190px;
   padding: 0;
   list-style: none;
   position: absolute;
   white-space: nowrap;
 }
 
-#header #titlebox ul li {
+#header #block-menu-menu-static-links ul li {
   display: inline;
   padding: 0 8px 0 6px;
   margin: 0;
@@ -217,22 +222,35 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   white-space: nowrap;
 }
 
-#header #titlebox ul li:first-child {
+.page-frontpage #page #navigation {
+  margin: 35px 0 4px 0;
+  left: 180px;
+  padding: 10;
+  list-style: none;
+  position: absolute;
+  white-space: nowrap;
+  /*#top: 25.5em;
+  #left: 0.5em;
+  #width: 100%;*/
+  display: inline;
+}
+
+#header #block-system-main-menu ul li:first-child {
   border-left: none;
 }
 
 
-#header #titlebox ul li a:hover {
+#header #block-system-main-menu ul li a:hover {
   border-width: 0 0 1px 0;
   border-color: #666;
   border-style:dotted;
 }
 
 /* navigation-elements for #startpage and #archivepage */
-.navbox {
+#block-views-newswire-block {
 }
 
-.navbox h3 {
+#block-views-newswire-block h3 {
   padding: 3px 6px;
   color: #666;
   font-weight: bold;
@@ -240,21 +258,21 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   margin-bottom: 0px;
 }
 
-.navbox h4 {
+#block-views-newswire-block h4 {
   font-size: 1em;
   color: #666;
   margin: 0;
   padding: 6px;
 }
 
-.navlist {
+.region-sidebar-first {
   border-top: 1px solid #ddd;
   margin: 0 0 14px 0;
   padding: 0;
   list-style: none;
 }
 
-.navlist li {
+.region-sidebar-first li {
   margin: 0;
   padding: 0;
   background-color: #fff;
@@ -262,17 +280,111 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   border-bottom: 1px solid #ddd;
 }
 
-.navlist li a {
-  display: block;
-  padding: 3px 6px;
-}
-
-.navlist li a:hover {
+.region-sidebar-first li a:hover {
   background-color: #f7f7f7;
   color: #709560;
 }
+#page #sidebar-first .block {
+  font-size: 0.8em;
+  color: #666;
+}
 
-.navbox .navboxcontent {
+#page #sidebar-first ul{ 
+  padding-left: 0;
+}
+#page #sidebar-first  li {
+  list-style: none ; 
+  border-top: none;
+  border-bottom: none;
+  font-weight: bold; 
+  margin: 0; 
+}
+#page #sidebar-first  a{
+  font-weight: normal;  
+  margin:0;	
+}
+#page #sidebar-first .region-sidebar-first h3 {
+  border-left: 2px solid #ddd;
+}
+
+#page #sidebar-first .region-sidebar-first .content {
+  border-right: 1px solid #ddd;
+}
+#page .region-sidebar-first  h2 {
+  padding: 6px 3px ; 
+  border-left: 1px solid #ddd;
+  border-right: 0px; 
+  border-bottom : 1px solid #ddd; 
+  border-top: 1px solid #ddd; 
+}
+
+#page #sidebar-first #block-indymedia-cities-und .content a:hover {
+  border-bottom: 1px dotted #aaa;
+}
+
+/*#sidebar-first #block-indymedia-cities-und .item-list  {
+  border-right: 1px solid #ddd;
+}*/
+
+
+#page #sidebar-first #block-indymedia-cities-und li {
+  padding-left: 0;
+}
+
+#page #sidebar-first #block-indymedia-cities-und li.icontext {
+  background: url("text_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#page #sidebar-first #archivebox li.iconaudio {
+  background: url("audio_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#page #sidebar-first #archivebox li.iconfoto {
+  background: url("foto_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#page #sidebar-first #archivebox li.iconvideo {
+  background: url("video_small.gif") no-repeat;
+  background-position: 2px 5px;
+}
+
+#page #sidebar-first .content {
+  padding: 0;
+  font-size: 0.8em;
+}
+
+#page #sidebar-first #stylesheetbox #styleswitcher form {
+  margin: 0;
+}
+
+#page #sidebar-first #stylesheetbox #styleswitcher select {
+  margin-top: 6px;
+  /* background-color: #7bb608; */
+  background-color: #70b000;
+  border: 1px solid #ccc;
+  color: #fff;
+}
+
+#page #sidebar-first #stylesheetbox #styleswitcher input {
+  /* background-color: #7bb608; */
+  background-color: #70b000;
+  color: #fff;
+}
+
+#page #sidebar-first #upcomingbox .region-sidebar-first li {
+  padding: 3px 6px;
+}
+
+#page #sidebar-first #upcomingbox .region-sidebar-first li a {
+ display: inline;
+ padding: 0px;
+}
+
+
+.menu {
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   padding: 6px;
@@ -330,36 +442,14 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
 #main-wrapper #main
 { top/* */:/**/9.5em; top: 9.5em; }
 
-/*#startpage #left*/
-.region region-sidebar-first {
-  position: absolute;
-  top: 0;
-  left: 16px;
-  width: 170px;
-  overflow: hidden;
-}
-
-#startpage #right {
-  position: absolute;
-  top: 0;
-  left: 76%;
-  right: 1%;
-}
-
-#startpage #right
-{ width: 34%; }
-
-#startpage #right
-{ width/* */:/**/23%; width: 23%; }
-
-#startpage #middle {
+#content .section {
   padding: 15px 15px 0 15px;
   position: relative;
-  margin-left: 200px;
-  margin-right: 25%;
+  margin-left: 0px;
+  margin-right: 20%;
 }
 
-#startpage #mainfooter {
+#page #mainfooter {
   display: none;
 }
 
@@ -367,106 +457,28 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
 
 /* general elements within #left or #right */
 
-#startpage #left .navbox h3 {
-  border-left: 2px solid #ddd;
-}
-
-#startpage #right .navbox h3 {
+#page #sidebar-second h3 {
   border-right: 2px solid #ddd;
 }
 
-#startpage #right .navbox h4 {
+#page #sidebar-second h4 {
   border-right: 2px solid #ddd;
 }
 
-#startpage #left .navbox .navboxcontent {
-  border-right: 1px solid #ddd;
-}
-
-#startpage #right .navbox .navboxcontent {
-  border-left: 1px solid #ddd;
-}
-
-#startpage #left .navlist {
-  border-right: 1px solid #ddd;
-}
-
-#startpage #right .navlist {
+#main #sidebar-second #block-menu-menu-indymedia .menu {
   border-left: 1px solid #ddd;
 }
 
 
-
-/* startpage: elements inside #left */
-
-#startpage #left #archivebox li {
-  padding-left: 18px;
+#page #sidebar-second #block-views-newswire-block .views-row{
+  border-left: 1px solid #ddd;
 }
 
-#startpage #left #archivebox li.icontext {
-  background: url("text_small.gif") no-repeat;
-  background-position: 2px 5px;
-}
+/* page: elements inside #sidebar-first */
 
-#startpage #left #archivebox li.iconaudio {
-  background: url("audio_small.gif") no-repeat;
-  background-position: 2px 5px;
-}
+/* page: elements inside #middle */
 
-#startpage #left #archivebox li.iconfoto {
-  background: url("foto_small.gif") no-repeat;
-  background-position: 2px 5px;
-}
-
-#startpage #left #archivebox li.iconvideo {
-  background: url("video_small.gif") no-repeat;
-  background-position: 2px 5px;
-}
-
-#startpage #left #stylesheetbox .navboxcontent {
-  padding: 0;
-  font-size: 0.8em;
-}
-
-#startpage #left #stylesheetbox #styleswitcher form {
-  margin: 0;
-}
-
-#startpage #left #stylesheetbox #styleswitcher select {
-  margin-top: 6px;
-  /* background-color: #7bb608; */
-  background-color: #70b000;
-  border: 1px solid #ccc;
-  color: #fff;
-}
-
-#startpage #left #stylesheetbox #styleswitcher input {
-  /* background-color: #7bb608; */
-  background-color: #70b000;
-  color: #fff;
-}
-
-#startpage #left #upcomingbox .navlist li {
-  padding: 3px 6px;
-}
-
-#startpage #left #upcomingbox .navlist li a {
- display: inline;
- padding: 0px;
-}
-
-#startpage #left #imcbox .navboxcontent {
-  font-size: 0.8em;
-  color: #666;
-}
-
-#startpage #left #imcbox .navboxcontent a:hover {
-  border-bottom: 1px dotted #aaa;
-}
-
-/* startpage: elements inside #middle */
-
-#startpage #middle #startpagekasten {
+#page #middle #startpagekasten {
   padding: 10px;
   margin: 0 0 15px 0;
   background-color: #f7f7f7;
@@ -474,7 +486,7 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   border: 2px solid #ee1111;
 }
 
-#startpage #middle #startpagekasten h1 {
+#page #middle #startpagekasten h1 {
   margin: 0;
   font-family: "Trebuchet MS", sans-serif;
   font-size: 1.6em;
@@ -483,7 +495,7 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   background-color: inherit;
 }
 
-#startpage #middle #breakingnews {
+#page #middle #breakingnews {
   padding: 8px;
   margin: 0 0 15px 0;
   background-color: #f7f7f7;
@@ -491,26 +503,26 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   border: 1px solid #ee1111;
 }
 
-#startpage #middle #breakingnews .date {
+#page #middle #breakingnews .date {
   font-size: 0.9em;
   color: #ee1111;
   background-color: inherit;
 }
 
-#startpage #middle #breakingnews .text {
+#page #middle #breakingnews .text {
   font-size: 0.9em;
 }
 
-#startpage #middle #breakingnews .text:after {
+#page #middle #breakingnews .text:after {
   content:" +++ ";
 }
 
-#startpage #middle .article {
+#page #middle .article {
   clear: both;
   margin: 0 0 20px 0;
 }
 
-#startpage #middle .article h3 {
+#page #middle .article h3 {
   margin: 0 0 2px 0;
   border-bottom: 1px solid #aaa;
   font-size: 1.4em;
@@ -518,90 +530,103 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   font-family: "Trebuchet MS", sans-serif;
 }
 
-#startpage #middle .article .infoline {
+#page #middle .article .infoline {
   font-size: 0.8em;
 }
 
-#startpage #middle .article .abstract {
+#page #middle .article .abstract {
   margin-top: 4px;
 }
 
-#startpage #middle #special .article {
+#page #middle #special .article {
   border: 1px solid #7bb608;
   padding: 15px;
   background-color:#f7f7f7;
 }
 
-#startpage #middle #features .article {
+#page #middle #features .article {
   border: 1px solid #ddd;
   padding: 15px;
   /* background-color:#f7f7f7; */
 }
 
-#startpage #middle #middlefooter {
+#page #middle #middlefooter {
   border-top: 1px solid #AAA;
 }
 
-/* startpage: elements inside #right */
+/* page: elements inside #right */
 
-#startpage #right #publishbox .navboxcontent a {
+#page #sidebar-second #block-menu-menu-indymedia .menu a {
   font-size: 1.3em;
   display: block;
   text-align: center;
   margin-top: 2px;
 }
 
-#startpage #right #eventspecialbox {
+#page #sidebar-second #eventspecialbox {
   margin-top: 15px;
 }
 
-#startpage #right #newswirebox .navlist {
+#page #sidebar-second ul {
   margin: 0;
 }
 
-#startpage #right #newswirebox .navlist li {
+#page #sidebar-second li {
   display: block;
   padding-left: 19px;
   text-decoration: none;
   border-bottom: 1px solid #ddd;
 }
 
-#startpage #right #newswirebox .navlist li:hover {
+#page #sidebar-second li:hover {
   background-color: #f7f7f7;
   color: inherit;
 }
 
-#startpage #right #newswirebox .navlist li.iconaudio {
+#page #sidebar-second  li.iconaudio {
   background: url("audio_small.gif") no-repeat;
   background-position: 2px 7px;
 }
 
-#startpage #right #newswirebox .navlist li.iconfoto {
+#page #sidebar-second li.iconfoto {
   background: url("foto_small.gif") no-repeat;
   background-position: 2px 7px;
 }
-
-#startpage #right #newswirebox .navlist li.icontext {
+
+#page #sidebar-second li.icontext {
   background: url("text_small.gif") no-repeat;
   background-position: 2px 7px;
 }
 
-#startpage #right #newswirebox .navlist li.iconvideo {
+#page #sidebar-second li.iconvideo {
   background: url("video_small.gif") no-repeat;
   background-position: 2px 6px;
 }
 
-#startpage #right #newswirebox .navlist .language {
+#page #sidebar-second #newswirebox .region-sidebar-first .language {
   float: right;
   color: #50a000;
 }
+#block-views-newswire-block .views-row {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+}
+#block-views-newswire-block h2 {
+  border-bottom: 1px solid #ddd;
+  border-left: none;
+}
+#block-views-newswire-block h3 {
+  border-bottom: 1px solid #ddd;
+  border-left: 0px;
+}
+
 /*************************************************************/
 /* Archivepages:                                             */
 /*************************************************************/
 
 /* archivepages: page layout */
 
-#archivepage #head #titlebox ul {
+#archivepage #header #block-system-main-menu ul {
   margin-top: 20px;
 }
 
@@ -620,15 +645,15 @@ a.readmore:hover {border-bottom: dotted 1px #AAA;}
   overflow: hidden;
 }
 
-#archivepage  #archivemain #navigation .navbox h3 {
+#archivepage  #archivemain #navigation #block-views-newswire-block h3 {
   border-left: 2px solid #ddd;
 }
 
-#archivepage  #archivemain #navigation .navbox .navboxcontent {
+#archivepage  #archivemain #navigation  .menu {
   border-right: 1px solid #ddd;
 }
 
-#archivepage  #archivemain #navigation .navlist {
+#archivepage  #archivemain #navigation .region-sidebar-first {
   border-right: 1px solid #ddd;
 }
 
