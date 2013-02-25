@@ -1,14 +1,18 @@
 de.indymedia.org.drupal.css
 ===========================
 
-CSS for the drupal setup for the de.indymedia.org page
+Howto install:
+cd <root_of_drupal>/themes
+git clone <this repo> deio
 
-This css brings the layout from the de.indymedia.org page, based on mir to a drupal cms. 
+Changelog:
+2013-02-25:
+Left and right navigation look quite nice
+Static links on top are placed well
+2012-08-30
+Initial commit
 
-Installation: 
-Copy this tree into the root directory of your drupal system
+Todo: 
+* Center part is not formated
+* Administration / Backend has still errors
 
-Drupal version:
-Works with 7.14 (gentoo)
-
-TODO: 
